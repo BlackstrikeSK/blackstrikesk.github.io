@@ -3,7 +3,7 @@ tagline: Dissecting malware (goop) campaigns :p
 description: A personal blog about dissecting malware campaigns.
 author: aboo
 
-url: "https://aboo.github.io"
+url: "https://blackstrikesk.github.io"
 baseurl: ""
 
 markdown: kramdown
