@@ -78,6 +78,7 @@ The binary also fetches it's C2 using etherhiding.
 Probably an address swapper.
 
 ### Configuration and API discovery
+
 | Item | Recovered value / evidence |
 |---|---|
 | Build label | `Oct_24`, object RVA `0xa55468` |
