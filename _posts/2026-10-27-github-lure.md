@@ -94,7 +94,7 @@ Probably an address swapper.
 | Last mapped domain | `https://megeve.beer` |
 
 ### Protocol reconstruction
-The malware check-ins and clipboard submissions PSOT to the resolved URL as forms. The `json` field contains `{"encrypted_data":"..."}`. Encryption is UTF-8 without a BOM, AES-256-CBC/PKCS7, then Base64 of the 16-byte IV followed by the ciphertext.
+The malware check-ins and clipboard submissions POST to the resolved URL as forms. The `json` field contains `{"encrypted_data":"..."}`. Encryption is UTF-8 without a BOM, AES-256-CBC/PKCS7, then Base64 of the 16-byte IV followed by the ciphertext.
 
 It's check-in fields contain:
 - hwid
