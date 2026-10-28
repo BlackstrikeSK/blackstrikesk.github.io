@@ -117,8 +117,6 @@ The malware contains installation logic with Powershell/COM/VBS shortcuts, a bat
 
 ## Indicators of compromise
 
-Ioc's omgggg!
-
 | Type | Indicator |
 |---|---|
 | Domain | `https://rtbsoftware.org/` |
