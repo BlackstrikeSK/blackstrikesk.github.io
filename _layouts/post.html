@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<div class="post-wrap">
+  <article class="post">
+    <header class="post-head">
+      <p class="meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>{% if page.reading_time != false %} &middot; {{ content | strip_html | number_of_words | divided_by: 220 | plus: 1 }} min read{% endif %}</p>
+      <h1>{{ page.title }}</h1>
+      {% if page.summary %}<p class="deck">{{ page.summary }}</p>{% endif %}
+    </header>
+
+    {% if page.sha256 or page.family or page.filetype or page.platform %}
+    <aside class="specimen" aria-label="Sample details">
+      <dl>
+        {% if page.family %}<div><dt>Family</dt><dd>{{ page.family }}</dd></div>{% endif %}
+        {% if page.filetype %}<div><dt>File type</dt><dd>{{ page.filetype }}</dd></div>{% endif %}
+        {% if page.platform %}<div><dt>Platform</dt><dd>{{ page.platform }}</dd></div>{% endif %}
+        {% if page.size %}<div><dt>Size</dt><dd>{{ page.size }}</dd></div>{% endif %}
+        {% if page.first_seen %}<div><dt>First seen</dt><dd>{{ page.first_seen }}</dd></div>{% endif %}
+        {% if page.sha256 %}<div class="wide"><dt>SHA-256</dt><dd class="hash"><code>{{ page.sha256 }}</code><button type="button" class="copy" data-copy="{{ page.sha256 }}">Copy</button></dd></div>{% endif %}
+      </dl>
+    </aside>
+    {% endif %}
+
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    {% if page.tags and page.tags.size > 0 %}
+    <footer class="post-foot">
+      <ul class="tags" aria-label="Tags">
+        {% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}
+      </ul>
+    </footer>
+    {% endif %}
+  </article>
+
+  <nav class="toc" id="toc" aria-label="On this page" hidden></nav>
+</div>

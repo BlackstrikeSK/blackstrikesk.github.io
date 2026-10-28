@@ -1,0 +1,33 @@
+---
+layout: default
+title: Latest
+---
+<section class="intro">
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.tagline }} {{ site.description }}</p>
+</section>
+
+{% if site.posts.size == 0 %}
+<section class="empty">
+  <h2>No write-ups yet</h2>
+  <p>Add a Markdown file to <code>_posts/</code> named <code>YYYY-MM-DD-sample-name.md</code> and push it. It shows up here automatically.</p>
+</section>
+{% else %}
+<ol class="slides">
+  {% for post in site.posts limit: 10 %}
+  <li>
+    <a class="slide" href="{{ post.url | relative_url }}">
+      <span class="slide-label">
+        <span class="slide-family">{{ post.family | default: "Unclassified" }}</span>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>
+      </span>
+      <span class="slide-body">
+        <span class="slide-title">{{ post.title }}</span>
+        <span class="slide-summary">{{ post.summary | default: post.excerpt | strip_html | strip_newlines | truncate: 180 }}</span>
+      </span>
+    </a>
+  </li>
+  {% endfor %}
+</ol>
+{% if site.posts.size > 10 %}<p class="more"><a href="{{ '/archive/' | relative_url }}">All {{ site.posts.size }} write-ups</a></p>{% endif %}
+{% endif %}

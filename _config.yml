@@ -1,0 +1,33 @@
+title: Aboo!
+tagline: Dissecting malware (goop) campaigns :p
+description: A personal blog about dissecting malware campaigns.
+author: aboo
+
+url: "https://aboo.github.io"
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  auto_ids: true
+
+permalink: /:year/:month/:title/
+timezone: Europe/Bratislava
+
+plugins:
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
